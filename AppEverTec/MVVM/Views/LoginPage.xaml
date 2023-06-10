@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="AppEverTec.MVVM.Views.LoginPage">
+    <ScrollView>
+        <VerticalStackLayout Spacing="3">
+            <Image Source="login.png"  WidthRequest="410" BackgroundColor="#FFAFAFAF" Aspect="Fill"/>
+            <VerticalStackLayout Spacing="3" Padding="30">
+                <Label  Text="Email"
+                        TextColor="#FF6B6B6B" 
+                        FontAttributes="Bold"/>
+                <Entry  Text="{Binding Email}"/>
+                <Label  Text="Contraseña"
+                        TextColor="#FF6B6B6B" 
+                        FontAttributes="Bold"/>
+                <Entry  IsPassword="True" 
+                        Text="{Binding Password}"></Entry>
+                <Button Text="Olvidaste tu contraseña?" 
+                        Command="{Binding AlertCommand}"
+                        CommandParameter="Olvidaste tu contraseña"
+                        FontAttributes="Bold"
+                        BackgroundColor="White"
+                        TextColor="#FF6B6B6B" 
+                        CornerRadius="10"></Button>
+                <Button Text="Login" 
+                        Command="{Binding LoginCommand}"
+                        CommandParameter="Olvidaste tu contraseña"
+                        BackgroundColor="#FFEF8426"
+                        FontAttributes="Bold"
+                        CornerRadius="10"></Button>
+                <HorizontalStackLayout Padding="30,30,30,30" Spacing="20" HorizontalOptions="Center">
+                    <ImageButton Source="instagram.png" 
+                                 Command="{Binding AlertCommand}" 
+                                 CommandParameter="instagram" 
+                                 HeightRequest="50"/>
+                    <ImageButton Source="facebook.png" 
+                                 Command="{Binding AlertCommand}" 
+                                 CommandParameter="facebook" 
+                                 HeightRequest="50"/>
+                    <ImageButton Source="google.png" 
+                                 Command="{Binding AlertCommand}" 
+                                 CommandParameter="google" 
+                                 HeightRequest="50"/>
+                </HorizontalStackLayout>
+                <Button Text="Registrarme" 
+                        Command="{Binding AlertCommand}"
+                        BackgroundColor="#FFD9D9D9"
+                        CornerRadius="10"
+                        CommandParameter="Registrarme"></Button>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

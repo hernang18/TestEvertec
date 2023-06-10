@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"   
+xmlns:local="clr-namespace:AppEverTec.MVVM.ViewModels"        
+x:Class="AppEverTec.MVVM.Views.HomePage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="logout.png" 
+                     Command="{Binding CommandGoto}" 
+                     CommandParameter="Login"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView BackgroundColor="{Binding ColorBack}">
+        <StackLayout >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="400" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="100" />
+
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Image  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7"
+                        Source="home.png"  
+                        Aspect="Fill"/>
+
+                <Label  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                        Text="Configuración" 
+                        HorizontalTextAlignment="Start"
+                        TextColor="{Binding ColorText}"
+                        Margin="0,20"/>
+                <Line   Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="3" 
+                        X1="200" X2="1" Y1="0" Y2="0"
+                        BackgroundColor="{Binding ColorText}"
+                        VerticalOptions="Center"/>
+                <Label  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+                        HorizontalTextAlignment="End"
+                        Text="Tema Aplicación:" 
+                        TextColor="{Binding ColorText}"
+                        VerticalOptions="Center"
+                        Margin="0,20"/>
+                <Label  Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2"
+                        Text="{Binding TextSwitch}" 
+                        TextColor="{Binding ColorText}"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"/>
+                <Switch Grid.Column="5" Grid.Row="2"
+                        ThumbColor="{Binding ColorBack}"                                           
+                        BackgroundColor="{Binding ColorBack}"
+                        IsToggled="{Binding IsToggledSw}"
+                        Toggled="Switch_Toggled" 
+                        OnColor="{Binding ColorText}"
+                        VerticalOptions="Start"
+                        Margin="0,20"/>
+                <Label  Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"
+                        HorizontalTextAlignment="End"
+                        Text="Cambiar Idioma:" 
+                        TextColor="{Binding ColorText}"
+                        VerticalOptions="Center"/>
+                <Label  Grid.Column="4" Grid.Row="3" Grid.ColumnSpan="3"
+                        Text="Español              >" 
+                        TextColor="{Binding ColorText}"
+                        FontAttributes="Bold"
+                        VerticalOptions="Center"/>
+                <Label  Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" 
+                        Text="Ultimo ajuste:"
+                        TextColor="{Binding ColorText}"
+                        FontSize="Micro"
+                        HorizontalTextAlignment="End"
+                        VerticalTextAlignment="End"/>
+                <Label  Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" 
+                        Text="{Binding LastAdjustment}"
+                        TextColor="{Binding ColorText}"
+                        FontAttributes="Italic"
+                        FontSize="Medium"
+                        VerticalTextAlignment="End"/>
+                <Rectangle  Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="7"
+                            HeightRequest="75"
+                            BackgroundColor="{Binding ColorRect}"
+                            Margin="0,95,0,0">
+                </Rectangle>
+                <ImageButton    Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="7" Grid.RowSpan="2"
+                                VerticalOptions="Center"
+                                Source="temp.png"
+                                HeightRequest="70"
+                                Command="{Binding CommandGoto}"
+                                CommandParameter="Temp"/>
+                <ImageButton    Grid.Column="1" Grid.Row="6" 
+                                Source="{Binding ImageContact}"
+                                HeightRequest="50"
+                                VerticalOptions="End"
+                                Command="{Binding CommandGoto}"
+                                CommandParameter="Contact"/>
+                <ImageButton    Grid.Column="5" Grid.Row="6" 
+                                Source="{Binding ImageMulti}"
+                                HeightRequest="50"
+                                VerticalOptions="End"
+                                Command="{Binding CommandGoto}"
+                                CommandParameter="Multi"/>
+
+            </Grid>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

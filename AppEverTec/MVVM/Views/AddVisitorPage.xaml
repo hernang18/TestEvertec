@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="AppEverTec.MVVM.Views.AddVisitorPage">
+    <ScrollView >
+        <StackLayout Margin="10" >
+            <Grid RowSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Image  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6"
+                        Source="{Binding imageSource}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CommandChangePhoto}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+            <VerticalStackLayout Spacing="15">
+                <Label  HorizontalTextAlignment="Start"
+                            Text="Nombre:" HorizontalOptions="Center"/>
+                <Entry  HorizontalOptions="Center"
+                            Text="{Binding Name}"
+                        Placeholder="Ingrese Nombre"/>
+                <Button CornerRadius="14"
+                            Text="Guardar"
+                            TextColor="White"                       
+                            Command="{Binding SaveCommand}"
+                        WidthRequest="150"/>
+            </VerticalStackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

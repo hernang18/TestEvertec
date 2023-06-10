@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="AppEverTec.MVVM.Views.ClimatePage">
+    <VerticalStackLayout Spacing="10" Margin="15">
+        <Label 
+            Text="Clima"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start" 
+            FontSize="18"/>
+        <Label Text="29°"
+               FontSize="40"
+               HorizontalTextAlignment="End"
+               TextColor="Gray"
+               FontAttributes="Bold"/>
+        <Image Source="climate.gift" 
+               IsAnimationPlaying="False"
+               x:Name="climate"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label  Grid.Column="0" Grid.Row="0"
+                    HorizontalOptions="End"
+                    Text="Medellín" 
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    VerticalOptions="End"/>
+            <Label  Grid.Column="2" Grid.Row="0"
+                    HorizontalOptions="Start"
+                    Text="Max: 33°" 
+                    FontSize="15"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"/>
+            <Label  Grid.Column="0" Grid.Row="1"
+                    x:Name="DateNow"
+                    HorizontalOptions="End"
+                    FontSize="15" 
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"/>
+            <Label  Grid.Column="2" Grid.Row="1"
+                    HorizontalOptions="Start"
+                    Text="Min: 10°" 
+                    FontSize="15"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"/>
+            <Line   Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" 
+                    X1="0" Y1="0" X2="0" Y2="45"
+                    Stroke="Black" 
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+        </Grid>
+
+    </VerticalStackLayout>
+    
+
+</ContentPage>

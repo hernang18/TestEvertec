@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppEverTec.MVVM.Views.VisitorsPage">
+    <VerticalStackLayout>
+        <Label Text="Cámara" HorizontalTextAlignment="Start" FontAttributes="Bold" FontSize="18" Margin="10"/>
+        <HorizontalStackLayout HorizontalOptions="End">
+            <Label Text="Agregar visitante: " VerticalOptions="Center" FontSize="14"/>
+            <ImageButton Source="addvisitor" HeightRequest="45" Clicked="ImageButton_Clicked" VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+        <ScrollView>
+            <CollectionView ItemsSource="{Binding OVisitors}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <Frame BackgroundColor="White" Margin="7">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Grid.ColumnSpan="2"
+                                       Source="{Binding imageSource}"
+                                       HeightRequest="80"
+                                       HorizontalOptions="Start"
+                                       VerticalOptions="Center"
+                                       Aspect="AspectFill"/>
+                                    <HorizontalStackLayout Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Spacing="2">
+                                        <Label Text="Nombre:"
+                                               FontAttributes="Bold"/>
+                                        <Label Text="{Binding Name}"/>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Spacing="2">
+                                        <Label Text="Fecha Visita:"
+                                               FontAttributes="Bold"/>
+                                        <Label Text="{Binding DateVisit}"/>
+                                    </HorizontalStackLayout>
+                                    <HorizontalStackLayout Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Spacing="2">
+                                        <Label Text="Hora Visita:"
+                                               FontAttributes="Bold"/>
+                                        <Label Text="{Binding HourVisit}"/>
+                                    </HorizontalStackLayout>
+                                    <ImageButton Grid.Column="5" Grid.Row="1" Grid.RowSpan="2"
+                                                 Source="edit.png"
+                                                 Command="{Binding EditCommand}"
+                                                 HeightRequest="30"/>
+                                    <ImageButton Grid.Column="5" Grid.Row="3" Grid.RowSpan="2"
+                                                 Source="delete.png"
+                                                 Command="{Binding DeleteCommand}"
+                                                 HeightRequest="30"/>
+                                </Grid>
+                            </Frame>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>
